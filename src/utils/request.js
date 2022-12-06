@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Modal } from "antd";
+import { Modal,message } from "antd";
 import { getToken } from "@/utils/token.ts";
 import {
   logout
@@ -33,23 +33,25 @@ service.interceptors.response.use(
    response => {
      const res = response.data
      if (res.code !== 20000) {
-       Message({
-         message: res.message,
-         type: 'error',
-         duration: 5 * 1000
-       })
+       message.error(res.message);
   
        if (res.code === 401) {
-         // import { Message, MessageBox } from 'element-ui'
-         MessageBox.confirm('You have been logged out because you have not operated for a long time. You can cancel staying on this page or log in again', 'Confirm logout?', {
-           confirmButtonText: 'relogin',
-           cancelButtonText: 'cancel',
-           type: 'warning'
-         }).then(() => {
-           store.dispatch('FedLogOut').then(() => {
-             location.reload()
-           })
-         })
+        const dispatch = useDispatch();
+        Modal.confirm({
+          title: "Confirm logout?",
+          content:
+            "You have been logged out because you haven't operated for a long time. You can cancel staying on this page or log in again",
+          okText: "relogin",
+          cancelText: "cancel",
+          onOk() {
+            let token = getToken();
+            
+            dispatch(logout(token));
+          },
+          onCancel() {
+            console.log("Cancel");
+          },
+        });
        }
        return Promise.reject('error')
      } else {

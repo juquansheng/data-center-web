@@ -3,6 +3,7 @@ import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import {Outlet,useLocation,Link} from "react-router-dom";
 import menuList from "@/config/menuConfig";
+import LayoutHeader from "@/pages/header/index.tsx";
 import { useSelector } from 'react-redux';
 
 
@@ -71,6 +72,8 @@ function filterMenu (item,menuConfig) {
 const LayoutApp: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const menuConfig = useSelector((state)=>state.auth.menuConfig);
+  const avatar = useSelector((state)=>state.auth.avatar);
+  const token = useSelector((state)=>state.auth.token);
   const items = getMenuNodes(menuList,menuConfig);
   const breadcrumbNodes = getBreadcrumbNodes(menuList,menuConfig);
 
@@ -92,8 +95,6 @@ const LayoutApp: React.FC = () => {
       <Link to="/">home</Link>
     </Breadcrumb.Item>
   ].concat(extraBreadcrumbItems);
-
-  console.log("LayoutApp call");
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
@@ -101,7 +102,7 @@ const LayoutApp: React.FC = () => {
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <LayoutHeader avatar={avatar} token={token}/>
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
           {breadcrumbItems}

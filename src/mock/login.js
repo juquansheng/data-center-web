@@ -9,7 +9,7 @@ const users = {
     id: "admin",
     role: "admin",
     name: "admin",
-    avatar: "",
+    avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
     description: "",
     token: "admin-token",
     menuConfig: [1,2,3,4,5,6],

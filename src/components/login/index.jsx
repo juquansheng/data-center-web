@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate,Link } from "react-router-dom";
 import { Form, Input, Button, message, Spin } from "antd";
 import DocumentTitle from "react-document-title";
 import { login } from "@/store/action/auth.js";
@@ -74,10 +74,10 @@ export default function Login()  {
               </Button>
             </Form.Item>
             <Form.Item>
-              <span>username : admin password : </span>
             </Form.Item>
           </Spin>
         </Form>
+        <Link to="/register">register</Link>
       </div>
     </DocumentTitle>
   );

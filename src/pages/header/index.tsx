@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, message, Menu, Dropdown, Modal, Avatar } from 'antd';
 import {Outlet,useLocation,Link} from "react-router-dom";
-import menuList from "@/config/menuConfig";
 import { logout,getUserInfo } from "@/store/action/auth.js";
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,6 +11,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+
 
 const { Header } = Layout;
 
@@ -67,7 +67,7 @@ const LayoutHeader: React.FC <{token: string,avatar: string}> = ({token,avatar})
     <>
       <Header className="site-layout-background"
         style={{ padding: 0 }}>
-        <div className="right-menu">
+        <div className="right-menu" style={{float: 'right'}}>
           <div className="dropdown-wrap">
           <Dropdown menu={{ items, onClick }}>
             <a onClick={(e) => e.preventDefault()}>

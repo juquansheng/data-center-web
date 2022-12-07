@@ -4,6 +4,7 @@ import  Index  from "@/components/index/index";
 import  CesiumView  from "@/components/cesium/index";
 import  Counter  from "@/components/test/index";
 import  LayoutApp  from "@/pages/index.tsx";
+import  Register  from "@/pages/register/index.tsx";
 import AuthRouter from './AuthRouters';
 
 export default () => (
@@ -15,5 +16,6 @@ export default () => (
 			<Route path='/test/counter1' element={<Counter />} />
 		</Route>	
 		<Route path='/login' exact = 'true' element={<Login />} />
+		<Route path='/register' exact = 'true' element={<Register />} />
 	</Routes>
   )

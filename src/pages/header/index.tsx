@@ -50,7 +50,7 @@ const LayoutHeader: React.FC <{token: string,avatar: string}> = ({token,avatar})
 
   const items = [
     { label: <Link to="/index">index</Link>, key: 1 },
-    { label: <a href="https://www.baidu.com">baidu</a>, key: 2 },
+    { label: <a href="https://github.com/juquansheng/data-center-web">github</a>, key: 2 },
     { label: 'logout', key: 3 },
   ];
 

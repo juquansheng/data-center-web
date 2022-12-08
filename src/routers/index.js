@@ -1,8 +1,8 @@
 import {Route,Router,Link,NavLink, Routes,Outlet} from "react-router-dom";
-import  Login  from "@/components/login/index.jsx";
-import  Index  from "@/components/index/index";
-import  CesiumView  from "@/components/cesium/index";
-import  Counter  from "@/components/test/index";
+import  Login  from "@/pages/login/index.jsx";
+import  Index  from "@/pages/index/index";
+import  CesiumView  from "@/pages/cesium/index";
+import  Counter  from "@/pages/test/index";
 import  LayoutApp  from "@/pages/index.tsx";
 import  Register  from "@/pages/register/index.tsx";
 import AuthRouter from './AuthRouters';
